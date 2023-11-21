@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import SunSVG from "../images/sun.svg";
+import SearchSVG from "../images/search.svg";
 import "./WeatherCard.css";
 export default class WeatherCard extends Component {
   render() {
     return (
       <container className="card-container">
         <div className="card">
+          <div className="search-section">
+            <input className="input" type="text" placeholder="Enter The City" />
+            <img className="search-image" src={SearchSVG} alt="search" />
+          </div>
+
           <div className="first-line">
             <img className="sun-image" src={SunSVG} alt="sun" />
             <div className="location-and-date">

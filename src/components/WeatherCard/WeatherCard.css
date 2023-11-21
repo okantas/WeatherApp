@@ -9,17 +9,41 @@
   justify-content: center;
   width: 400px;
   height: 600px;
-  gap: 60px;
+  gap: 30px;
   margin-top: 100px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.input {
+  width: 220px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+}
+.search-image {
+  background-color: white;
+  width: 18px;
+  padding: 10px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.search-image:hover {
+  background-color: rgb(238, 174, 202);
+}
 .first-line {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 .location-and-date {
-  text-align: left;
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 8px;
