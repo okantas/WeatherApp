@@ -1,20 +1,22 @@
 .card {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.69);
-  border-radius: 12px;
+  background-color: rgba(93, 116, 158, 0.69);
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.125);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px;
+  width: 400px;
+  height: 600px;
   gap: 60px;
+  margin-top: 100px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 .first-line {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 .location-and-date {
   text-align: left;
@@ -29,7 +31,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: monospace;
 }
 .degree {
   font-size: 140px;
@@ -37,17 +38,15 @@
 .last-line {
   display: flex;
   justify-content: space-evenly;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  align-items: center;
 }
 .left-part {
   text-align: left;
   display: flex;
-  flex-direction: column;
   gap: 8px;
 }
 .right-part {
   text-align: left;
   display: flex;
-  flex-direction: column;
   gap: 8px;
 }

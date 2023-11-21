@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SunSVG from "./sun.svg";
+import SunSVG from "../images/sun.svg";
 import "./WeatherCard.css";
 export default class WeatherCard extends Component {
   render() {
@@ -20,12 +20,12 @@ export default class WeatherCard extends Component {
           </div>
 
           <div className="last-line">
-            <div className="left-part">
+            <div className="top-part">
               <div className="visibility">Visibility: 10km</div>
-              <div className="humidity">Humidity: 10km</div>
-            </div>
-            <div className="right-part">
               <div className="feels-like">Feels Like: 10km</div>
+            </div>
+            <div className="bottom-part">
+              <div className="humidity">Humidity: 10km</div>
               <div className="wind">Wind: 10km</div>
             </div>
           </div>
