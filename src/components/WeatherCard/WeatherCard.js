@@ -50,13 +50,13 @@ const WeatherCard = () => {
         <div className="first-line">
           <img className="sun-image" src={SunSVG} alt="sun" />
           <div className="location-and-date">
-            <div className="location"> Eskişehir</div>
+            <div className="location"> Default</div>
             <div className="date">Salı 21/11/2023</div>
           </div>
         </div>
 
         <div className="second-line">
-          <div className="degree">15</div>
+          <div className="degree">0</div>
           <div className="type-of-degree">°C</div>
         </div>
 
@@ -68,28 +68,31 @@ const WeatherCard = () => {
                 src={visibilityImg}
                 alt="visibility"
               />
-              <h1 className="visibility">10</h1>
+              <h1 className="visibility">0</h1>
             </div>
             <p>Visibility</p>
           </div>
+          |
           <div className="entity-container">
             <div className="entity">
               <img className="entity-img" src={tempImg} alt="feels like" />
-              <h1 className="feels-like">10</h1>
+              <h1 className="feels-like">0</h1>
             </div>
             <p>Feels Like</p>
           </div>
+          |
           <div className="entity-container">
             <div className="entity">
               <img className="entity-img" src={humidityImg} alt="humidity" />
-              <h1 className="humidity">10</h1>
+              <h1 className="humidity">0</h1>
             </div>
             <p>Humidity</p>
           </div>
+          |
           <div className="entity-container">
             <div className="entity">
               <img className="entity-img" src={windImg} alt="Wind" />
-              <h1 className="wind">10</h1>
+              <h1 className="wind">0</h1>
             </div>
             <p>Wind</p>
           </div>
