@@ -29,12 +29,14 @@ const WeatherCard = () => {
     const Humidity = document.getElementsByClassName("humidity");
     const Wind = document.getElementsByClassName("wind");
     const Location = document.getElementsByClassName("location");
+    const Definition = document.getElementsByClassName("definition");
     const Temp = document.getElementsByClassName("degree");
 
     FeelsLike[0].innerHTML = Math.floor(data.main.feels_like) + "°C";
     Humidity[0].innerHTML = data.main.humidity + " %";
     Wind[0].innerHTML = data.wind.speed;
     Location[0].innerHTML = data.name;
+    Definition[0].innerHTML = data.weather[0].description;
     Temp[0].innerHTML = Math.floor(data.main.temp);
 
     if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
@@ -69,16 +71,19 @@ const WeatherCard = () => {
       data.weather[0].icon === "10n"
     ) {
       setWeatherIcon(RainySVG);
+      setWeatherDefinition("Rain");
     } else if (
       data.weather[0].icon === "11d" ||
       data.weather[0].icon === "11n"
     ) {
       setWeatherIcon(ThunderSVG);
+      setWeatherDefinition("Thunder Storm");
     } else if (
       data.weather[0].icon === "13d" ||
       data.weather[0].icon === "13n"
     ) {
       setWeatherIcon(ThunderSVG);
+      setWeatherDefinition("Snow");
     }
   };
 
@@ -101,6 +106,7 @@ const WeatherCard = () => {
           <img className="sun-image" src={weatherIcon} alt="sun" />
           <div className="location-and-date">
             <div className="location"> Default</div>
+            <div className="definition"> -Default-</div>
           </div>
         </div>
 
