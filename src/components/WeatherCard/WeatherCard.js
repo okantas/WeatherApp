@@ -41,49 +41,41 @@ const WeatherCard = () => {
 
     if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
       setWeatherIcon(SunSVG);
-      setWeatherDefinition("Clear Sky");
     } else if (
       data.weather[0].icon === "02d" ||
       data.weather[0].icon === "02n"
     ) {
       setWeatherIcon(CloudSVG);
-      setWeatherDefinition("Few Clouds");
     } else if (
       data.weather[0].icon === "03d" ||
       data.weather[0].icon === "03n"
     ) {
       setWeatherIcon(DrizzleSVG);
-      setWeatherDefinition("Scattered Clouds");
     } else if (
       data.weather[0].icon === "04d" ||
       data.weather[0].icon === "04n"
     ) {
       setWeatherIcon(DrizzleSVG);
-      setWeatherDefinition("Broken Clouds");
     } else if (
       data.weather[0].icon === "09d" ||
       data.weather[0].icon === "09n"
     ) {
       setWeatherIcon(DrizzleSVG);
-      setWeatherDefinition("Shower Rain");
     } else if (
       data.weather[0].icon === "10d" ||
       data.weather[0].icon === "10n"
     ) {
       setWeatherIcon(RainySVG);
-      setWeatherDefinition("Rain");
     } else if (
       data.weather[0].icon === "11d" ||
       data.weather[0].icon === "11n"
     ) {
       setWeatherIcon(ThunderSVG);
-      setWeatherDefinition("Thunder Storm");
     } else if (
       data.weather[0].icon === "13d" ||
       data.weather[0].icon === "13n"
     ) {
       setWeatherIcon(ThunderSVG);
-      setWeatherDefinition("Snow");
     }
   };
 
