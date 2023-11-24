@@ -15,7 +15,6 @@ const WeatherCard = () => {
   let api_key = "755df23c7bd09458923dbf8286b1fc75";
 
   const [weatherIcon, setWeatherIcon] = useState(CloudSVG);
-  const [weatherDefinition, setWeatherDefinition] = useState();
 
   const search = async () => {
     const element = document.getElementsByClassName("input");
