@@ -12,7 +12,14 @@ export default class Header extends Component {
             <div>WeatherApp by Okan</div>
           </div>
           <div className="right-part">
-            <div>Github</div>
+            <a
+              rel="noreferrer"
+              target="_blank"
+              className="link"
+              href="https://www.linkedin.com/in/okantas/"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>

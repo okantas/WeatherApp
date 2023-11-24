@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import SunSVG from "../images/sun.svg";
+import ThunderSVG from "../images/thunder.svg";
+import RainySVG from "../images/rainy.svg";
+import CloudSVG from "../images/cloud.svg";
+import DrizzleSVG from "../images/drizzle.svg";
 import SearchSVG from "../images/search.svg";
 import humidityImg from "../images/humidity.png";
 import tempImg from "../images/temp.png";
 import windImg from "../images/wind.png";
-import visibilityImg from "../images/visibility.png";
+
 import "./WeatherCard.css";
 
 const WeatherCard = () => {
   let api_key = "755df23c7bd09458923dbf8286b1fc75";
+
+  const [weatherIcon, setWeatherIcon] = useState(CloudSVG);
+  const [weatherDefinition, setWeatherDefinition] = useState();
+
   const search = async () => {
     const element = document.getElementsByClassName("input");
     if (element[0].value === "") {
@@ -17,19 +25,61 @@ const WeatherCard = () => {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${element[0].value}&units=Metric&appid=${api_key}`;
     let response = await fetch(url);
     let data = await response.json();
-    const Visibility = document.getElementsByClassName("visibility");
     const FeelsLike = document.getElementsByClassName("feels-like");
     const Humidity = document.getElementsByClassName("humidity");
     const Wind = document.getElementsByClassName("wind");
     const Location = document.getElementsByClassName("location");
     const Temp = document.getElementsByClassName("degree");
 
-    Visibility[0].innerHTML = data.visibility / 1000 + " Km";
     FeelsLike[0].innerHTML = Math.floor(data.main.feels_like) + "°C";
     Humidity[0].innerHTML = data.main.humidity + " %";
-    Wind[0].innerHTML = data.wind.speed + " Km/h";
+    Wind[0].innerHTML = data.wind.speed;
     Location[0].innerHTML = data.name;
     Temp[0].innerHTML = Math.floor(data.main.temp);
+
+    if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
+      setWeatherIcon(SunSVG);
+      setWeatherDefinition("Clear Sky");
+    } else if (
+      data.weather[0].icon === "02d" ||
+      data.weather[0].icon === "02n"
+    ) {
+      setWeatherIcon(CloudSVG);
+      setWeatherDefinition("Few Clouds");
+    } else if (
+      data.weather[0].icon === "03d" ||
+      data.weather[0].icon === "03n"
+    ) {
+      setWeatherIcon(DrizzleSVG);
+      setWeatherDefinition("Scattered Clouds");
+    } else if (
+      data.weather[0].icon === "04d" ||
+      data.weather[0].icon === "04n"
+    ) {
+      setWeatherIcon(DrizzleSVG);
+      setWeatherDefinition("Broken Clouds");
+    } else if (
+      data.weather[0].icon === "09d" ||
+      data.weather[0].icon === "09n"
+    ) {
+      setWeatherIcon(DrizzleSVG);
+      setWeatherDefinition("Shower Rain");
+    } else if (
+      data.weather[0].icon === "10d" ||
+      data.weather[0].icon === "10n"
+    ) {
+      setWeatherIcon(RainySVG);
+    } else if (
+      data.weather[0].icon === "11d" ||
+      data.weather[0].icon === "11n"
+    ) {
+      setWeatherIcon(ThunderSVG);
+    } else if (
+      data.weather[0].icon === "13d" ||
+      data.weather[0].icon === "13n"
+    ) {
+      setWeatherIcon(ThunderSVG);
+    }
   };
 
   return (
@@ -48,10 +98,9 @@ const WeatherCard = () => {
         </div>
 
         <div className="first-line">
-          <img className="sun-image" src={SunSVG} alt="sun" />
+          <img className="sun-image" src={weatherIcon} alt="sun" />
           <div className="location-and-date">
             <div className="location"> Default</div>
-            <div className="date">Salı 21/11/2023</div>
           </div>
         </div>
 
@@ -61,18 +110,6 @@ const WeatherCard = () => {
         </div>
 
         <div className="last-line">
-          <div className="entity-container">
-            <div className="entity">
-              <img
-                className="entity-img"
-                src={visibilityImg}
-                alt="visibility"
-              />
-              <h1 className="visibility">0</h1>
-            </div>
-            <p>Visibility</p>
-          </div>
-          |
           <div className="entity-container">
             <div className="entity">
               <img className="entity-img" src={tempImg} alt="feels like" />
@@ -94,7 +131,7 @@ const WeatherCard = () => {
               <img className="entity-img" src={windImg} alt="Wind" />
               <h1 className="wind">0</h1>
             </div>
-            <p>Wind</p>
+            <p>Wind(Km/h)</p>
           </div>
         </div>
       </div>

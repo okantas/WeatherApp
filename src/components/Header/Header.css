@@ -18,5 +18,9 @@
   align-items: center;
 }
 .cloud-svg {
-  width: 100px;
+  width: 80px;
+}
+.link {
+  color: white;
+  text-decoration: none;
 }
